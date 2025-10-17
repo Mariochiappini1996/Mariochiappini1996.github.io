@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio di [Il Tuo Nome]</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio | Mario Chiappini</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <h1 id="intro-title">Ciao, sono Mario</h1>
-        <p id="intro-subtitle">Studente di Informatica | Sviluppatore Web | Appassionato di AI</p>
+        <nav>
+            <div class="logo">Mario Chiappini</div>
+            <ul class="nav-links">
+                <li><a href="#about">Chi sono</a></li>
+                <li><a href="#projects">Progetti</a></li>
+                <li><a href="#contact">Contatti</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Ciao, sono Mario Chiappini</h1>
+            <p>Studente & Sviluppatore | Informatica | Appassionato di AI</p>
+            <a href="#projects" class="btn">Scopri i miei progetti</a>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">Chi sono</a></li>
-            <li><a href="#projects">Progetti</a></li>
-            <li><a href="#contact">Contatti</a></li>
-        </ul>
-    </nav>
+    <main>
+        <section id="about" class="section">
+            <h2>Chi sono</h2>
+            <p>
+                Sono uno studente di Informatica all'Università di Tor Vergata. Amo sviluppare soluzioni web moderne, lavorare su database e sperimentare con AI e cybersecurity.
+            </p>
+        </section>
 
-    <section id="about">
-        <h2>Chi sono</h2>
-        <p>Mi chiamo Mario, studio Informatica all'Università di Tor Vergata. Mi occupo di sviluppo web, database MySQL e automazione in Python.</p>
-    </section>
+        <section id="projects" class="section">
+            <h2>Progetti recenti</h2>
+            <div id="project-list" class="projects-grid">
+                <!-- I progetti verranno caricati dinamicamente -->
+            </div>
+        </section>
 
-    <section id="projects">
-        <h2>Progetti recenti</h2>
-        <div id="project-list">
-            <!-- I progetti verranno caricati dinamicamente -->
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contatti</h2>
-        <p>Email: <a href="mailto:mrchppn0@gmail.com">mrchppn0@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/Mariochiappini1996" target="_blank" rel="noopener noreferrer">github.com/Mariochiappini1996</a></p>
-    </section>
+        <section id="contact" class="section">
+            <h2>Contatti</h2>
+            <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:mrchppn0@gmail.com">mrchppn0@gmail.com</a></p>
+            <p><i class="fa-brands fa-github"></i> GitHub: <a href="https://github.com/Mariochiappini1996" target="_blank" rel="noopener noreferrer">github.com/Mariochiappini1996</a></p>
+        </section>
+    </main>
 
     <footer>
         <p>© 2025 Mario Chiappini. Tutti i diritti riservati.</p>
