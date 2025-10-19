@@ -74,7 +74,7 @@ h2 {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem; /* aumentato per più spazio tra le card */
+    gap: 5rem; /* aumentato per più spazio tra le card */
     padding: 1rem; /* aggiunto margine interno al contenitore */
 }
 
@@ -128,7 +128,7 @@ h2 {
 
 .card-back {
     background-color: var(--primary-color); /* Un colore diverso per il retro */
-    color: #000; /* Testo scuro sul retro chiaro */
+    color: black; /* Testo scuro sul retro chiaro */
     transform: rotateY(180deg); /* Il retro è già ruotato */
     border: 1px solid var(--primary-color);
     display: flex;
@@ -138,7 +138,7 @@ h2 {
 }
 
 .card-back p {
-    color: #000; /* Assicura che il testo sia scuro */
+    color: black; /* Assicura che il testo sia scuro */
     margin-bottom: 1rem;
     font-size: 0.95rem; /* Testo leggermente più piccolo */
 }
