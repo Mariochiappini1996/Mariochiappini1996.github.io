@@ -74,8 +74,10 @@ h2 {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem; /* aumentato per più spazio tra le card */
+    padding: 1rem; /* aggiunto margine interno al contenitore */
 }
+
 
 .repo-card {
     background-color: transparent; /* Il background sarà sui lati della card-inner */
