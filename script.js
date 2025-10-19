@@ -1,7 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const username = 'Mariochiappini1996'; // <-- INSERISCI QUI IL TUO USERNAME GITHUB
+document.addEventListener('DOMContentLoaded', () => { 
+    const username = 'Mariochiappini1996';
+    const selectedRepos = [
+        'Vault_University-LM',
+        'Vault_University-LT',
+        'Scrapy_Pokedex-Project',
+        'Laboratorio-Data-Mining',
+        'Progetto-Ingegneria-del-Software',
+        'ChatAppPro---Progetto-Tesi-di-Laurea'
+    ];
+
     const grid = document.getElementById('repos-grid');
-    const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&direction=desc`;
+    const apiUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
 
     fetch(apiUrl)
         .then(response => {
@@ -11,14 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            // Limita il numero di repository da mostrare, ad esempio i 6 più recenti
-            const recentRepos = data.slice(0, 6);
+            const filtered = data.filter(repo => selectedRepos.includes(repo.name));
 
-            recentRepos.forEach(repo => {
+            filtered.forEach(repo => {
                 const card = document.createElement('div');
                 card.classList.add('repo-card');
 
-                // Gestisce descrizioni nulle o vuote
                 const description = repo.description || 'Nessuna descrizione disponibile.';
 
                 card.innerHTML = `
@@ -28,17 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p>${description.substring(0, 100)}...</p>
                         </div>
                         <div class="card-back">
-                            <p>${description}</p> 
+                            <p>${description}</p>
                             <a href="${repo.html_url}" class="repo-link back-link" target="_blank">Vai al Repo</a>
                         </div>
                     </div>
                 `;
-
-            grid.appendChild(card);
+                grid.appendChild(card);
             });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p style="color: #ff6b6b;">Nessuna delle repository selezionate è stata trovata.</p>`;
+            }
         })
         .catch(error => {
             console.error('Errore nel caricamento dei repository:', error);
-            grid.innerHTML = `<p style="color: #ff6b6b;">Impossibile caricare i progetti da GitHub. Controlla il tuo username e la connessione.</p>`;
+            grid.innerHTML = `<p style="color: #ff6b6b;">Impossibile caricare i progetti da GitHub.</p>`;
         });
 });
