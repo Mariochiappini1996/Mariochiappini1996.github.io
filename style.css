@@ -127,9 +127,9 @@ h2 {
 }
 
 .card-back {
-    background-color: var(--primary-color); /* Un colore diverso per il retro */
-    color: black; /* Testo scuro sul retro chiaro */
-    transform: rotateY(180deg); /* Il retro è già ruotato */
+    background-color: var(--primary-color);
+    color: #000 !important;
+    transform: rotateY(180deg);
     border: 1px solid var(--primary-color);
     display: flex;
     flex-direction: column;
@@ -138,10 +138,11 @@ h2 {
 }
 
 .card-back p {
-    color: black; /* Assicura che il testo sia scuro */
+    color: #000 !important;
     margin-bottom: 1rem;
-    font-size: 0.95rem; /* Testo leggermente più piccolo */
+    font-size: 0.95rem;
 }
+
 
 .card-front h3, .card-back p {
     margin-top: 0;
