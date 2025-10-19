@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio | Mario Chiappini</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Chiappini| Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Mario Chiappini</div>
-            <ul class="nav-links">
-                <li><a href="#about">Chi sono</a></li>
-                <li><a href="#projects">Progetti</a></li>
-                <li><a href="#contact">Contatti</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1>Ciao, sono Mario Chiappini</h1>
-            <p>Studente & Sviluppatore | Informatica | Appassionato di AI</p>
-            <a href="#projects" class="btn">Scopri i miei progetti</a>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Ciao, sono Mario</h1>
+            <p class="subtitle">Sviluppatore Software & Appassionato di Tecnologia</p>
+            <div class="social-links">
+                <a href="https://github.com/Mariochiappini1996" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/mario-chiappini-a55146272/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:mrchppn0@gmail.com">Email</a>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="about" class="section">
-            <h2>Chi sono</h2>
+        <section id="about">
+            <h2>Su di me</h2>
             <p>
-                Sono uno studente di Informatica all'Università di Tor Vergata. Amo sviluppare soluzioni web moderne, lavorare su database e sperimentare con AI e cybersecurity.
+                Sono uno sviluppatore con una passione per la creazione di soluzioni software efficienti e innovative. Mi specializzo in Sviluppo in Python e sono sempre alla ricerca di nuove sfide per migliorare le mie competenze. Questo portfolio mostra alcuni dei progetti a cui ho lavorato.
             </p>
         </section>
 
-        <section id="projects" class="section">
-            <h2>Progetti recenti</h2>
-            <div id="project-list" class="projects-grid">
-                <!-- I progetti verranno caricati dinamicamente -->
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contatti</h2>
-            <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:mrchppn0@gmail.com">mrchppn0@gmail.com</a></p>
-            <p><i class="fa-brands fa-github"></i> GitHub: <a href="https://github.com/Mariochiappini1996" target="_blank" rel="noopener noreferrer">github.com/Mariochiappini1996</a></p>
+        <section id="projects">
+            <h2>I Miei Progetti Recenti</h2>
+            <p class="projects-intro">Questi sono i miei repository pubblici più recenti su GitHub, caricati dinamicamente.</p>
+            <div id="repos-grid" class="grid-container">
+                </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Mario Chiappini. Tutti i diritti riservati.</p>
+        <p>&copy; 2025 Mario Chiappini. Realizzato con ❤️ e codice.</p>
     </footer>
 
     <script src="script.js"></script>

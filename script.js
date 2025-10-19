@@ -1,35 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('project-list');
-    const username = 'Mariochiappini1996'; // Sostituisci con il tuo username GitHub
+    const username = 'Mariochiappini1996'; // <-- INSERISCI QUI IL TUO USERNAME GITHUB
+    const grid = document.getElementById('repos-grid');
+    const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&direction=desc`;
 
-    async function fetchGitHubRepos() {
-        try {
-            const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
-            if (!response.ok) throw new Error('Errore nella richiesta API');
-            const repos = await response.json();
-
-            const filteredRepos = repos.filter(repo => repo.description);
-
-            container.innerHTML = '';
-
-            filteredRepos.forEach(repo => {
-                const div = document.createElement('div');
-                div.className = 'project';
-                div.innerHTML = `
-                    <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name}</a></h3>
-                    <p>${repo.description}</p>
-                    <p><em>Linguaggio principale: ${repo.language || 'N/A'}</em></p>
-                `;
-                container.appendChild(div);
-            });
-
-            if (filteredRepos.length === 0) {
-                container.innerHTML = '<p>Nessun progetto trovato sul profilo GitHub.</p>';
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Errore di rete o utente non trovato.');
             }
-        } catch (error) {
-            container.innerHTML = `<p class="error">Impossibile connettersi a GitHub. (${error.message})</p>`;
-        }
-    }
+            return response.json();
+        })
+        .then(data => {
+            // Limita il numero di repository da mostrare, ad esempio i 6 più recenti
+            const recentRepos = data.slice(0, 6);
 
-    fetchGitHubRepos();
+            recentRepos.forEach(repo => {
+                const card = document.createElement('div');
+                card.classList.add('repo-card');
+
+                // Gestisce descrizioni nulle o vuote
+                const description = repo.description || 'Nessuna descrizione disponibile.';
+
+                card.innerHTML = `
+                    <h3>${repo.name}</h3>
+                    <p>${description}</p>
+                    <a href="${repo.html_url}" class="repo-link" target="_blank">Vedi su GitHub</a>
+                `;
+                grid.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Errore nel caricamento dei repository:', error);
+            grid.innerHTML = `<p style="color: #ff6b6b;">Impossibile caricare i progetti da GitHub. Controlla il tuo username e la connessione.</p>`;
+        });
 });
