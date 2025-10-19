@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <header class="hero" style="background-image: url('images/imageIA.png');">
+    <header class="hero" id="hero">
         <div class="hero-content" >
             <h1>Ciao, sono Mario</h1>
             <p class="subtitle">Sviluppatore Software & Appassionato di Tecnologia</p>
@@ -37,8 +37,18 @@
         <section id="projects">
             <h2>I Miei Progetti Recenti</h2>
             <p class="projects-intro">Questi sono i miei repository pubblici più recenti su GitHub, caricati dinamicamente.</p>
-            <div id="repos-grid" class="grid-container">
+            <div class="repo-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Nome Repository</h3>
+                        <p>Breve descrizione frontale o placeholder.</p>
+                        <a href="#" class="repo-link" target="_blank">Vedi su GitHub</a>
+                    </div>
+                    <div class="card-back">
+                        <p>Qui va la descrizione completa della repository.</p>
+                        </div>
                 </div>
+            </div>
         </section>
     </main>
 
