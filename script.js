@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Progetto-Ingegneria-del-Software',
         'ChatAppPro---Progetto-Tesi-di-Laurea'
     ];
-
+    const cards = document.querySelectorAll('.repo-card');
     const grid = document.getElementById('repos-grid');
     const apiUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
 
@@ -51,4 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Errore nel caricamento dei repository:', error);
             grid.innerHTML = `<p style="color: #ff6b6b;">Impossibile caricare i progetti da GitHub.</p>`;
         });
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
 });

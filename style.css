@@ -6,21 +6,46 @@
     --border-color: #333;
 }
 
+/* === BASE === */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* === HERO === */
 .hero {
     height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, rgba(17,17,17,0.8), rgba(29,29,29,0.9)), url('https://source.unsplash.com/random/1600x900/?programming,technology') no-repeat center center/cover;
+    background: linear-gradient(135deg, rgba(17,17,17,0.8), rgba(29,29,29,0.9));
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/imageIA.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    filter: brightness(0.4) grayscale(0.2);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content h1 {
@@ -47,31 +72,32 @@ body {
     color: var(--primary-color);
 }
 
+/* === MAIN CON BACKGROUND === */
 main {
-    position: relative;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 4rem auto;
-    padding: 2rem;
+    padding: 3rem 2rem;
+    position: relative;
     border-radius: 15px;
     overflow: hidden;
+    background: rgba(18, 18, 18, 0.9);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
 }
 
 main::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('images/5040007.jpg') center/cover no-repeat;
+    inset: 0;
+    background: url('images/5040007.jpg') center/cover no-repeat;
     z-index: -1;
+    filter: brightness(0.35) grayscale(0.3);
 }
 
-
-
+/* === SEZIONI TESTO === */
 section {
     margin-bottom: 4rem;
+    padding: 0 1.5rem;
 }
 
 h2 {
@@ -88,46 +114,54 @@ h2 {
     display: block;
 }
 
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: justify;
+    color: var(--text-color);
+    padding: 0 1rem;
+}
+
+/* === GRIGLIA REPOSITORY === */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 5rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 3rem;
+    justify-items: center;
+    align-items: start;
     padding: 1rem;
-    perspective: 1000px;
 }
 
-
+/* === CARD BASE === */
 .repo-card {
     width: 100%;
-    max-width: 320px;
-    background-color: transparent;
-    border: none;
+    max-width: 350px;
     height: 260px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    perspective: 1000px;
+    position: relative;
     transition: transform 0.3s ease;
-
 }
 
+/* === CARD INTERNA === */
 .card-inner {
-    position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
-    transition: transform 0.8s ease-in-out;
+    position: relative;
     transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
     transform-origin: center center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-    border-radius: 10px;
 }
 
-
-
-.repo-card:hover .card-inner {
-    transform: rotateY(180deg);
+/* Ruota solo su desktop */
+@media (hover: hover) and (pointer: fine) {
+    .repo-card:hover .card-inner {
+        transform: rotateY(180deg);
+    }
 }
 
+/* === CARD FRONT E BACK === */
 .card-front, .card-back {
     position: absolute;
     width: 100%;
@@ -135,15 +169,16 @@ h2 {
     top: 0;
     left: 0;
     border-radius: 10px;
-    padding: 1.5rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
+/* Fronte */
 .card-front {
     background-color: var(--card-bg);
     color: var(--text-color);
@@ -151,35 +186,23 @@ h2 {
     z-index: 2;
 }
 
+/* Retro */
 .card-back {
     background-color: var(--primary-color);
     color: #000 !important;
-    transform: rotateY(180deg);
     border: 1px solid var(--primary-color);
+    transform: rotateY(180deg);
 }
-
-.card-front, .card-back {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 
 .card-back p {
     color: #000 !important;
     margin-bottom: 1rem;
     font-size: 0.95rem;
+    text-align: center;
+    padding: 0 0.5rem;
 }
 
-
-.card-front h3, .card-back p {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-}
-
-
+/* === LINK NEL RETRO === */
 .repo-link.back-link {
     background-color: #000;
     color: var(--primary-color);
@@ -195,11 +218,13 @@ h2 {
     color: #fff;
 }
 
+/* Ombra all’hover */
 .repo-card:hover {
     transform: none;
     box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
+/* Testo */
 .repo-card h3 {
     margin-top: 0;
     color: var(--primary-color);
@@ -212,22 +237,21 @@ h2 {
     color: #B0B0B0;
 }
 
-.repo-link {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--bg-color);
-    background-color: var(--primary-color);
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 700;
-    text-align: center;
-    transition: background-color 0.3s ease;
+/* === FIX MOBILE === */
+@media (hover: none) and (pointer: coarse) {
+    /* disattiva flip su touch */
+    .card-inner {
+        transform: none !important;
+    }
+    .card-back {
+        display: none;
+    }
+    .repo-card {
+        height: auto;
+    }
 }
 
-.repo-link:hover {
-    background-color: #a968f5;
-}
-
+/* === FOOTER E PROFILO === */
 footer {
     text-align: center;
     padding: 2rem;
@@ -249,45 +273,46 @@ footer {
     display: block;
 }
 
-.hero {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(17,17,17,0.8), rgba(29,29,29,0.9));
-    position: relative;
-    overflow: hidden;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/imageIA.png');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    filter: brightness(0.4) grayscale(0.2);
-    z-index: -1;
-}
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
+    main {
+        padding: 2rem 1.5rem;
+    }
 
+    #about p {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 0.5rem;
+    }
+}
 
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .grid-container {
+        grid-template-columns: 1fr;
+        justify-items: center;
     }
-    .hero-content .subtitle {
-        font-size: 1.2rem;
+
+    .repo-card {
+        max-width: 100%;
+        height: auto;
     }
+
     main {
-        padding: 1rem;
+        margin: 2rem auto;
+        padding: 2rem 1rem;
+        border-radius: 10px;
     }
+
+    #about p {
+        text-align: left;
+    }
+}
+
+.repo-card.flipped .card-inner {
+    transform: rotateY(180deg);
 }
