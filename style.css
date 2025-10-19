@@ -76,17 +76,22 @@ h2 {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 5rem;
     padding: 1rem;
+    perspective: 1000px;
+    justify-items: center center;
 }
 
 
 .repo-card {
+    width: 100%;
+    max-width: 320px;
     background-color: transparent;
     border: none;
-    perspective: 1000px;
-    height: 250px;
+    height: 260px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease;
+
 }
 
 .card-inner {
@@ -96,9 +101,9 @@ h2 {
     text-align: center;
     transition: transform 0.8s ease-in-out;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    border-radius: 8px;
     transform-origin: center center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    border-radius: 10px;
 }
 
 
@@ -111,14 +116,16 @@ h2 {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 8px;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .card-front {
@@ -133,11 +140,16 @@ h2 {
     color: #000 !important;
     transform: rotateY(180deg);
     border: 1px solid var(--primary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
+
+.card-front, .card-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 
 .card-back p {
     color: #000 !important;
@@ -168,8 +180,8 @@ h2 {
 }
 
 .repo-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 .repo-card h3 {
