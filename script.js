@@ -22,16 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const description = repo.description || 'Nessuna descrizione disponibile.';
 
                 card.innerHTML = `
-                <div class="card-inner">
-                    <div class="card-front">
-                        <h3>${repo.name}</h3>
-                        <p>${description.substring(0, 100)}...</p> <a href="${repo.html_url}" class="repo-link" target="_blank">Vedi su GitHub</a>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>${repo.name}</h3>
+                            <p>${description.substring(0, 100)}...</p>
+                        </div>
+                        <div class="card-back">
+                            <p>${description}</p> 
+                            <a href="${repo.html_url}" class="repo-link back-link" target="_blank">Vai al Repo</a>
+                        </div>
                     </div>
-                    <div class="card-back">
-                        <p>${description}</p> <a href="${repo.html_url}" class="repo-link back-link" target="_blank">Vai al Repo</a>
-                    </div>
-                </div>
-            `;
+                `;
+
             grid.appendChild(card);
             });
         })
