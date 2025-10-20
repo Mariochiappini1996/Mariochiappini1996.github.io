@@ -142,6 +142,7 @@ h2 {
     perspective: 1000px;
     position: relative;
     transition: transform 0.3s ease;
+    cursor: pointer; /* Aggiunto per indicare che è cliccabile */
 }
 
 /* === CARD INTERNA === */
@@ -154,7 +155,7 @@ h2 {
     transform-origin: center center;
 }
 
-/* Ruota solo su desktop */
+/* Ruota solo su desktop con hover */
 @media (hover: hover) and (pointer: fine) {
     .repo-card:hover .card-inner {
         transform: rotateY(180deg);
@@ -176,6 +177,8 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1rem; /* Aggiunto padding per spaziatura interna */
+    box-sizing: border-box; /* Assicura che il padding non modifichi la dimensione */
 }
 
 /* Fronte */
@@ -220,7 +223,7 @@ h2 {
 
 /* Ombra all’hover */
 .repo-card:hover {
-    transform: none;
+    transform: translateY(-5px); /* Leggero effetto di sollevamento */
     box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
@@ -229,26 +232,19 @@ h2 {
     margin-top: 0;
     color: var(--primary-color);
     font-size: 1.4rem;
+    text-align: center;
 }
 
 .repo-card p {
     flex-grow: 1;
     margin-bottom: 1.5rem;
     color: #B0B0B0;
+    text-align: center;
 }
 
-/* === FIX MOBILE === */
-@media (hover: none) and (pointer: coarse) {
-    /* disattiva flip su touch */
-    .card-inner {
-        transform: none !important;
-    }
-    .card-back {
-        display: none;
-    }
-    .repo-card {
-        height: auto;
-    }
+/* === Classe per la rotazione su click === */
+.repo-card.flipped .card-inner {
+    transform: rotateY(180deg);
 }
 
 /* === FOOTER E PROFILO === */
@@ -276,7 +272,7 @@ footer {
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 2rem;
     }
 
@@ -292,6 +288,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+
     .grid-container {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -299,7 +303,6 @@ footer {
 
     .repo-card {
         max-width: 100%;
-        height: auto;
     }
 
     main {
@@ -311,8 +314,4 @@ footer {
     #about p {
         text-align: left;
     }
-}
-
-.repo-card.flipped .card-inner {
-    transform: rotateY(180deg);
 }
