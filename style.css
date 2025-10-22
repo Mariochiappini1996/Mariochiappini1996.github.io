@@ -455,3 +455,104 @@ footer {
     color: var(--text-color);
     text-decoration: underline;
 }
+
+/* ======================================= */
+/* === STILE PAGINA CV === */
+/* ======================================= */
+
+#cv, #experience, #education, #skills, #contacts {
+    margin-bottom: 4rem;
+    padding: 0 1.5rem;
+    color: var(--text-color);
+}
+
+#cv h2, #experience h2, #education h2, #skills h2, #contacts h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.4rem;
+}
+
+#cv p, #experience p, #education p, #skills p, #contacts p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--text-color);
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+}
+
+#experience ul, #education ul, #skills ul {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#experience li, #education li, #skills li {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#experience li:hover, #education li:hover, #skills li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+#skills li {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #000;
+    font-weight: 700;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    margin: 0.4rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+#contacts a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+#contacts a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#contacts p {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* --- Responsive per la pagina CV --- */
+@media (max-width: 768px) {
+    #cv h2, #experience h2, #education h2, #skills h2, #contacts h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    #experience li, #education li {
+        padding: 1rem;
+    }
+
+    #skills li {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    #contacts p {
+        font-size: 1rem;
+    }
+}
