@@ -262,14 +262,89 @@ footer {
     padding: 1.5rem 0;
 }
 
+/* === MODIFICA APPLICATA QUI === */
 .profile-img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Evita che l'immagine si deformi */
     display: block;
+    border-radius: 50%; /* Rende l'immagine tonda */
+    border: 4px solid var(--primary-color); /* Aggiunge il bordo colorato */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6); /* Aggiunge un'ombra */
 }
 
-/* === RESPONSIVE === */
+
+/* ======================================= */
+/* === NUOVE REGOLE PER PAGINA ABOUT ME === */
+/* ======================================= */
+
+/* --- NAVIGAZIONE (per entrambe le pagine) --- */
+.top-nav {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10;
+}
+
+.nav-button {
+    background-color: var(--primary-color);
+    color: #121212;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    border: 2px solid var(--primary-color);
+}
+
+.nav-button:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* --- GRIGLIA E TESTO PAGINA "ABOUT" --- */
+#about-me-details .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    text-align: left;
+}
+
+#about-me-details .about-text h2, 
+#passions h2 {
+    text-align: left; /* Allinea a sinistra i titoli in questa sezione */
+}
+
+#about-me-details .about-text p,
+#passions p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+#about-me-details .about-text p strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- IMMAGINE PROFILO NELLA PAGINA "ABOUT" --- */
+#about-me-details .about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-me-details .about-image .profile-img {
+    width: 250px;
+    height: 250px;
+    /* Le altre proprietà (bordo, ombra, etc.) sono ereditate da .profile-img */
+}
+
+/* === RESPONSIVE (AGGIORNAMENTI) === */
 @media (max-width: 900px) {
     .grid-container {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -284,6 +359,17 @@ footer {
         font-size: 1rem;
         line-height: 1.6;
         padding: 0 0.5rem;
+    }
+    
+    /* Regole responsive per la pagina About Me */
+    #about-me-details .about-grid {
+        grid-template-columns: 1fr; /* Le colonne si impilano */
+        gap: 2.5rem;
+    }
+
+    #about-me-details .about-text h2, 
+    #passions h2 {
+        text-align: center; /* Titoli centrati su mobile */
     }
 }
 
@@ -300,6 +386,12 @@ footer {
         grid-template-columns: 1fr;
         justify-items: center;
     }
+    
+    /* Regola per rimpicciolire l'immagine profilo su mobile */
+    .profile-img {
+        width: 220px;
+        height: 220px;
+    }
 
     .repo-card {
         max-width: 100%;
@@ -313,5 +405,15 @@ footer {
 
     #about p {
         text-align: left;
+    }
+    
+    .top-nav {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .nav-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 }
