@@ -8,72 +8,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="page-wrapper">
+        <header class="hero">
+            <div id="particles-js"></div>
+            <nav class="top-nav">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="about.html" class="nav-button">About Me</a>
+            </nav>
+            <div class="hero-content">
+                <h1>Curriculum Vitae</h1>
+                <p class="subtitle">Mario Chiappini</p>
+            </div>
+        </header>
 
-    <header class="hero">
-        <nav class="top-nav">
-            <a href="index.html" class="nav-button">Home</a>
-            <a href="about.html" class="nav-button">About Me</a>
-        </nav>
-        <div class="hero-content">
-            <h1>Curriculum Vitae</h1>
-            <p class="subtitle">Mario Chiappini</p>
-        </div>
-    </header>
+        <main>
+            <section id="cv" class="fade-in-section">
+                <h2>Profilo Professionale</h2>
+                <p>
+                    Sviluppatore software con esperienza in linguaggi come <strong>Python</strong>, <strong>C</strong>, <strong>Java</strong>, <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>.
+                    Appassionato di tecnologie moderne e automazione, con forte attenzione alla sicurezza informatica e all’efficienza del codice.
+                </p>
+            </section>
 
-    <main>
-        <section id="cv">
-            <h2>Profilo Professionale</h2>
-            <p>
-                Sviluppatore software con esperienza in linguaggi come <strong>Python</strong>, <strong>C</strong>, <strong>Java</strong>, <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>.
-                Appassionato di tecnologie moderne e automazione, con forte attenzione alla sicurezza informatica e all’efficienza del codice.
-            </p>
-        </section>
+            <section id="experience" class="fade-in-section">
+                <h2>Esperienza Lavorativa</h2>
+                <ul>
+                    <li>
+                        <strong>Cuoco </strong> – (2015 – 2024)
+                        <br>esperienza nella preparazione e presentazione di piatti di alta qualità. Competente nella gestione della cucina, nella selezione degli ingredienti e nel mantenimento degli standard di igiene e sicurezza alimentare.
+                    </li>
+                    <li>
+                        <strong>Sviluppatore </strong> – Freelance  (2025 - presente)
+                        <br>Progettazione e sviluppo di applicazioni web e script di automazione in Python.
+                </ul>
+            </section>
 
-        <section id="experience">
-            <h2>Esperienza Lavorativa</h2>
-            <ul>
-                <li>
-                    <strong>Cuoco </strong> – (2015 – 2024)
-                    <br>esperienza nella preparazione e presentazione di piatti di alta qualità. Competente nella gestione della cucina, nella selezione degli ingredienti e nel mantenimento degli standard di igiene e sicurezza alimentare.
-                </li>
-                <li>
-                    <strong>Sviluppatore </strong> – Freelance  (2025 - presente)
-                    <br>Progettazione e sviluppo di applicazioni web e script di automazione in Python.
-            </ul>
-        </section>
+            <section id="education" class="fade-in-section">
+                <h2>Istruzione</h2>
+                <ul>
+                    <li>
+                        <strong>Laurea Triennale in Informatica</strong> – Università di Tor Vergata Roma (2022–2025)
+                    </li>
+                    <li>
+                        <strong>Laurea Magistrale in Informatica (In corso)</strong> – (2025 - Presente)
+                    </li>
+                </ul>
+            </section>
 
-        <section id="education">
-            <h2>Istruzione</h2>
-            <ul>
-                <li>
-                    <strong>Laurea Triennale in Informatica</strong> – Università di Tor Vergata Roma (2022–2025)
-                </li>
-                <li>
-                    <strong>Laurea Magistrale in Informatica (In corso)</strong> – (2025 - Presente)
-                </li>
-            </ul>
-        </section>
+            <section id="skills" class="fade-in-section">
+                <h2>Competenze Tecniche</h2>
+                <ul>
+                    <li>Python, JavaScript, HTML5, CSS3</li>
+                    <li>Git, GitHub, Visual Studio Code</li>
+                    <li>Linux, Windows, reti e sicurezza</li>
+                </ul>
+            </section>
 
-        <section id="skills">
-            <h2>Competenze Tecniche</h2>
-            <ul>
-                <li>Python, JavaScript, HTML5, CSS3</li>
-                <li>Git, GitHub, Visual Studio Code</li>
-                <li>Linux, Windows, reti e sicurezza</li>
-            </ul>
-        </section>
+            <section id="contacts" class="fade-in-section">
+                <h2>Contatti</h2>
+                <p>Email: <a href="mailto:mrchppn0@gmail.com">mrchppn0@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/mario-chiappini-a55146272/" target="_blank" rel="noopener">Profilo</a></p>
+                <p>GitHub: <a href="https://github.com/Mariochiappini1996" target="_blank" rel="noopener noreferrer">Profilo</a></p>
+            </section>
+        </main>
 
-        <section id="contacts">
-            <h2>Contatti</h2>
-            <p>Email: <a href="mailto:mrchppn0@gmail.com">mrchppn0@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/mario-chiappini-a55146272/" target="_blank" rel="noopener">Profilo</a></p>
-            <p>GitHub: <a href="https://github.com/Mariochiappini1996" target="_blank" rel="noopener noreferrer">Profilo</a></p>
-        </section>
-    </main>
+        <footer class="fade-in-section">
+            <p>&copy; 2025 Mario Chiappini. Tutti i diritti riservati.</p>
+        </footer>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Mario Chiappini. Tutti i diritti riservati.</p>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script src="particles-config.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
